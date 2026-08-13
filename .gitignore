@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build output
+lib/
+
+# macOS
+.DS_Store
+
+# Android
+android/build/
+android/.gradle/
+android/.idea/
+android/local.properties
+*.iml
+
+# iOS
+ios/build/
+ios/Pods/
+*.xcuserstate
+
+# Logs
+*.log
