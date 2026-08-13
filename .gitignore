@@ -6,6 +6,9 @@ yarn-error.log
 # Build output
 lib/
 
+# npm pack tarballs
+*.tgz
+
 # macOS
 .DS_Store
 

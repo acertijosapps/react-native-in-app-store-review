@@ -38,7 +38,7 @@ Si Metro se queja de resolución con symlinks, añade la ruta a `watchFolders` e
 
 ```bash
 cd ~/Documents/Libs/react-native-in-app-store-review && npm pack
-cd ~/Documents/ReacProjectsNew/Insumia && yarn add ../../Libs/react-native-in-app-store-review/bgoswaldo-react-native-in-app-store-review-0.1.0.tgz
+cd ~/Documents/ReacProjectsNew/Insumia && yarn add ../../Libs/react-native-in-app-store-review/bgoswaldo-react-native-in-app-store-review-1.0.0.tgz
 ```
 
 Repite ambos comandos tras cada cambio en la librería.
