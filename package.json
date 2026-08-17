@@ -1,6 +1,6 @@
 {
   "name": "@bgoswaldo/react-native-in-app-store-review",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "In-app store review prompt for React Native — iOS SKStoreReviewController and Android Play In-App Review, with a store-listing fallback.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",

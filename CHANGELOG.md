@@ -5,6 +5,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-08-16
+
+### Added
+
+- README: ilustración del prompt nativo de reseña en iOS
+  (`SKStoreReviewController`) y Android (Play In-App Review), en
+  `assets/demo.png` / `assets/demo.svg`.
+
 ## [1.0.0] - 2026-08-12
 
 Primera versión pública.
@@ -22,4 +30,5 @@ Primera versión pública.
 - Empaquetado con `react-native-builder-bob` (salidas CommonJS, ESM y tipos) y
   autolinking para iOS (podspec) y Android (Gradle).
 
+[1.0.1]: https://gitlab.com/bgoswaldo-group/rninappstorereview/-/tags/v1.0.1
 [1.0.0]: https://gitlab.com/bgoswaldo-group/rninappstorereview/-/tags/v1.0.0
