@@ -1,6 +1,6 @@
 {
   "name": "@bgoswaldo/react-native-in-app-store-review",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "In-app store review prompt for React Native — iOS SKStoreReviewController and Android Play In-App Review, with a store-listing fallback.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -39,13 +39,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/bgoswaldo-group/rninappstorereview.git"
+    "url": "git+https://gitlab.com/acertijoslibs/rninappstorereview.git"
   },
   "author": "bgoswaldo <bgoswaldo@gmail.com>",
   "license": "MIT",
-  "homepage": "https://gitlab.com/bgoswaldo-group/rninappstorereview#readme",
+  "homepage": "https://gitlab.com/acertijoslibs/rninappstorereview#readme",
   "bugs": {
-    "url": "https://gitlab.com/bgoswaldo-group/rninappstorereview/-/issues"
+    "url": "https://gitlab.com/acertijoslibs/rninappstorereview/-/issues"
   },
   "publishConfig": {
     "access": "public"

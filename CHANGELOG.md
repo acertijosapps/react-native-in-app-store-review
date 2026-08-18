@@ -5,6 +5,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-08-17
+
+### Changed
+
+- Rutas del repositorio (`repository`, `homepage`, `bugs` y `s.source` del
+  podspec) apuntando al repo público `acertijoslibs/rninappstorereview`.
+
 ## [1.0.1] - 2026-08-16
 
 ### Added
@@ -30,5 +37,6 @@ Primera versión pública.
 - Empaquetado con `react-native-builder-bob` (salidas CommonJS, ESM y tipos) y
   autolinking para iOS (podspec) y Android (Gradle).
 
-[1.0.1]: https://gitlab.com/bgoswaldo-group/rninappstorereview/-/tags/v1.0.1
-[1.0.0]: https://gitlab.com/bgoswaldo-group/rninappstorereview/-/tags/v1.0.0
+[1.0.2]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.2
+[1.0.1]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.1
+[1.0.0]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.0
