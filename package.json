@@ -1,7 +1,7 @@
 {
   "name": "@bgoswaldo/react-native-in-app-store-review",
-  "version": "1.0.4",
-  "description": "In-app store review prompt for React Native — iOS SKStoreReviewController and Android Play In-App Review, with a store-listing fallback.",
+  "version": "1.0.5",
+  "description": "Ask users to rate and review your React Native app in-app — native iOS (SKStoreReviewController) and Android (Play In-App Review) prompts, with an App Store / Play Store fallback.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "lib/typescript/index.d.ts",
@@ -28,7 +28,9 @@
   },
   "keywords": [
     "react-native",
-    "react-native-module",
+    "react-native-in-app-store-review",
+    "react-native-in-app-review",
+    "react-native-store-review",
     "ios",
     "android",
     "expo",
@@ -43,8 +45,6 @@
     "app-rating",
     "in-app-review",
     "in-app-rating",
-    "request-review",
-    "review-prompt",
     "store-review",
     "app-store",
     "appstore",
@@ -52,9 +52,7 @@
     "google-play",
     "storekit",
     "SKStoreReviewController",
-    "play-core",
-    "feedback",
-    "stars"
+    "play-core"
   ],
   "repository": {
     "type": "git",
