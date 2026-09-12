@@ -63,7 +63,7 @@ En `src/services/review/nativeReview.ts`, reemplaza la llamada al `NativeModules
 por la librería, reutilizando las consts que ya tienes:
 
 ```ts
-import { requestReview } from '@bgoswaldo/react-native-in-app-store-review';
+import { requestReview } from '@acertijosapps/react-native-in-app-store-review';
 
 import { REVIEW } from '@/utils/consts';
 
@@ -110,7 +110,7 @@ cd ~/Documents/ReacProjectsNew/Insumia && yarn android           # Android
 Para volver a dejar Insumia limpio antes de decidir:
 
 ```bash
-cd ~/Documents/ReacProjectsNew/Insumia && yarn remove @bgoswaldo/react-native-in-app-store-review
+cd ~/Documents/ReacProjectsNew/Insumia && yarn remove @acertijosapps/react-native-in-app-store-review
 ```
 
 Y descarta los cambios de la rama de prueba (`git restore` / borra la rama), o

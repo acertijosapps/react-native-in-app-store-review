@@ -1,4 +1,4 @@
-# @bgoswaldo/react-native-in-app-store-review
+# @acertijosapps/react-native-in-app-store-review
 
 Ask users to rate your app **without leaving it**, using each platform's native
 in-app review flow:
@@ -17,9 +17,9 @@ falls back to opening the store listing.
 ## Install
 
 ```bash
-npm install @bgoswaldo/react-native-in-app-store-review
+npm install @acertijosapps/react-native-in-app-store-review
 # or
-yarn add @bgoswaldo/react-native-in-app-store-review
+yarn add @acertijosapps/react-native-in-app-store-review
 ```
 
 ### iOS
@@ -38,7 +38,7 @@ No manual steps — the module is autolinked.
 ## Usage
 
 ```ts
-import { requestReview } from '@bgoswaldo/react-native-in-app-store-review';
+import { requestReview } from '@acertijosapps/react-native-in-app-store-review';
 
 // Call it after a positive moment in your app (task completed, level cleared…),
 // never on app launch, and don't gate a feature behind it.

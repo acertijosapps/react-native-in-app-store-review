@@ -5,6 +5,15 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-09-11
+
+### Changed
+
+- **Renombrado el paquete** de `@bgoswaldo/react-native-in-app-store-review` a
+  `@acertijosapps/react-native-in-app-store-review`. El paquete anterior queda
+  obsoleto (`npm deprecate`); actualiza el import y la dependencia al nuevo
+  nombre. El código y la API pública no cambian.
+
 ## [1.0.5] - 2026-08-18
 
 ### Changed
@@ -57,6 +66,7 @@ Primera versión pública.
 - Empaquetado con `react-native-builder-bob` (salidas CommonJS, ESM y tipos) y
   autolinking para iOS (podspec) y Android (Gradle).
 
+[1.1.0]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.1.0
 [1.0.5]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.5
 [1.0.4]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.4
 [1.0.3]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.3
