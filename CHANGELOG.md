@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Android: el módulo no compilaba con React Native 0.86 (`Unresolved reference
   'currentActivity'`); ahora obtiene la Activity desde `reactApplicationContext`.
 
+### Changed
+
+- Android: `RNInAppStoreReviewPackage` migrado de `ReactPackage.createNativeModules`
+  (deprecado) a `BaseReactPackage` con `getModule` y `getReactModuleInfoProvider`.
+- Versión mínima: React Native 0.74 (`peerDependencies.react-native: >=0.74`),
+  que es donde aparece `BaseReactPackage`.
+
 ## [1.1.1] - 2026-10-12
 
 ### Changed
