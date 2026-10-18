@@ -32,7 +32,7 @@ cd ios && pod install
 
 No manual steps — the module is autolinked.
 
-> Minimum: iOS 13+, `minSdkVersion` 21+. Uses a legacy bridge module, which works
+> Minimum: React Native 0.74+, iOS 13+, `minSdkVersion` 24+. Uses a legacy bridge module, which works
 > under both the old and the New Architecture (via the interop layer).
 
 ## Usage
