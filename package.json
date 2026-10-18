@@ -1,6 +1,6 @@
 {
   "name": "@acertijosapps/react-native-in-app-store-review",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "Ask users to rate and review your React Native app in-app — native iOS (SKStoreReviewController) and Android (Play In-App Review) prompts, with an App Store / Play Store fallback.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
