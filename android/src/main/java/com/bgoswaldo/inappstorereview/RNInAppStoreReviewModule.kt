@@ -14,7 +14,7 @@ class RNInAppStoreReviewModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun requestReview(promise: Promise) {
-    val activity: Activity? = currentActivity
+    val activity: Activity? = reactApplicationContext.currentActivity
     if (activity == null) {
       // No foreground activity to attach the flow to — resolve as a no-op.
       promise.resolve(null)
