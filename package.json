@@ -56,13 +56,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/acertijoslibs/rninappstorereview.git"
+    "url": "git+https://github.com/acertijosapps/react-native-in-app-store-review.git"
   },
   "author": "AcertijosApps <acertijos.contacto@gmail.com>",
   "license": "MIT",
   "homepage": "https://acertijosapps.com/librerias/react-native-in-app-store-review",
   "bugs": {
-    "url": "https://gitlab.com/acertijoslibs/rninappstorereview/-/issues"
+    "url": "https://github.com/acertijosapps/react-native-in-app-store-review/issues"
   },
   "publishConfig": {
     "access": "public"
