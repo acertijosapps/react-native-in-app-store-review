@@ -5,6 +5,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- CI en GitHub Actions para cada PR y push a `beta` y `main`: typecheck y build
+  de la librería (`bob build`).
+
 ## [2.0.0] - 2026-10-18
 
 ### Changed
