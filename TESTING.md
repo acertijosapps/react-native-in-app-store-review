@@ -1,117 +1,73 @@
-# Probar la librería en local (con Insumia)
+# Probar la librería en local
 
-Guía para validar el paquete dentro de `Insumia/` **antes de publicarlo a npm**.
-Este archivo es solo para desarrollo — no se incluye en el paquete publicado.
+Este archivo es solo para desarrollo; no se incluye en el paquete publicado.
+
+## Prueba rápida: la app de ejemplo
+
+Para probar un cambio en `src/`, `ios/` o `android/`, usa la app de
+[`example/`](example/README.md). Enlaza la librería desde la raíz del repo, así
+que no hace falta compilar ni empaquetar nada.
+
+## Prueba antes de publicar: Insumia
+
+Para validar el paquete tal como se publicará, instálalo en Insumia desde un
+tarball.
 
 Rutas asumidas:
 
 - Librería: `~/Documents/Libs/react-native-in-app-store-review`
 - App: `~/Documents/ReacProjectsNew/Insumia`
 
----
+> Hazlo en una rama de Insumia para poder revertirlo.
 
-## 1. Compilar la librería
+### 1. Empaquetar la librería
 
-Desde la carpeta de la librería, genera `lib/`:
-
-```bash
-cd ~/Documents/Libs/react-native-in-app-store-review && npm run prepare
-```
-
-## 2. Enlazar en Insumia
-
-Hay dos formas. La opción B imita mejor la publicación real (evita problemas de
-symlink/Metro que a veces da `file:`), pero requieres repetir el pack en cada cambio.
-
-### Opción A — `file:` link (rápida para iterar)
-
-Desde Insumia:
-
-```bash
-cd ~/Documents/ReacProjectsNew/Insumia && yarn add file:../../Libs/react-native-in-app-store-review
-```
-
-Si Metro se queja de resolución con symlinks, añade la ruta a `watchFolders` en
-`metro.config.js` de Insumia, apuntando a `../../Libs/react-native-in-app-store-review`.
-
-### Opción B — tarball (más fiel a producción)
+`npm pack` corre `prepare` (`bob build`) y deja el `.tgz` en la raíz:
 
 ```bash
 cd ~/Documents/Libs/react-native-in-app-store-review && npm pack
-cd ~/Documents/ReacProjectsNew/Insumia && yarn add ../../Libs/react-native-in-app-store-review/bgoswaldo-react-native-in-app-store-review-1.0.0.tgz
 ```
 
-Repite ambos comandos tras cada cambio en la librería.
+### 2. Instalar el tarball en Insumia
 
-## 3. Quitar el módulo nativo antiguo de Insumia
+Cambia la versión del nombre del archivo por la de `package.json`:
 
-El módulo actual de Insumia se registra como `AppReview`; la librería usa
-`RNInAppStoreReview`. Para probar de verdad la librería, elimina (o comenta) el
-módulo embebido para que no haya duplicados:
-
-- **iOS**: borra `ios/Insumia/AppReview.swift` y `ios/Insumia/AppReview.m` del proyecto Xcode.
-- **Android**:
-  - borra `android/app/src/main/java/com/acertijos/insumia/AppReviewModule.kt` y `AppReviewPackage.kt`
-  - quita `add(AppReviewPackage())` en `MainApplication.kt`
-  - quita `implementation("com.google.android.play:review-ktx:2.0.2")` de `android/app/build.gradle` (ahora la trae la librería)
-
-> Tip: hazlo en una rama de Insumia para poder revertir fácil.
-
-## 4. Apuntar la capa JS a la librería
-
-En `src/services/review/nativeReview.ts`, reemplaza la llamada al `NativeModules.AppReview`
-por la librería, reutilizando las consts que ya tienes:
-
-```ts
-import { requestReview } from '@acertijosapps/react-native-in-app-store-review';
-
-import { REVIEW } from '@/utils/consts';
-
-export const requestNativeReview = async (): Promise<void> => {
-  await requestReview({
-    iosAppId: REVIEW.IOS_APP_ID,
-    androidPackage: REVIEW.ANDROID_PACKAGE,
-  });
-};
+```bash
+cd ~/Documents/ReacProjectsNew/Insumia && yarn add ../../Libs/react-native-in-app-store-review/acertijosapps-react-native-in-app-store-review-2.0.0.tgz
 ```
 
-El resto de tu servicio (`review.ts`, `ratingPreference.ts`, `shouldAskForReview`,
-`openFeedback`) se queda igual: la librería solo sustituye el bridge nativo + fallback.
+Repite los pasos 1 y 2 tras cada cambio en la librería.
 
-## 5. Reconstruir e instalar
+### 3. Reconstruir la app
+
+Cambió código nativo, así que no basta con recargar Metro:
 
 ```bash
 cd ~/Documents/ReacProjectsNew/Insumia/ios && pod install
 ```
 
-Luego reconstruye la app nativa (no basta con recargar Metro, cambió código nativo):
-
 ```bash
-cd ~/Documents/ReacProjectsNew/Insumia && yarn ios --device      # iOS real
+cd ~/Documents/ReacProjectsNew/Insumia && yarn ios --device
 ```
 
 ```bash
-cd ~/Documents/ReacProjectsNew/Insumia && yarn android           # Android
+cd ~/Documents/ReacProjectsNew/Insumia && yarn android
 ```
 
-## 6. Verificar
+### 4. Verificar
 
-- **Android**: llama a `requestAppReview()` desde un botón de prueba. Con una
-  build de debug puede no mostrar nada por cuota de Play — pruébalo también en un
-  track de testing interno / cuenta license-tester. La promesa resuelve igual.
-- **iOS**: el prompt **no** aparece en debug ni TestFlight; solo en build de
-  producción de App Store. Para humo, confirma que no crashea y que la promesa
-  resuelve.
-- **Fallback**: temporalmente renombra el módulo en JS o prueba en un entorno sin
-  el nativo enlazado para ver que `openStoreReview` abre la ficha de la tienda.
+- **iOS:** en builds de desarrollo el prompt aparece siempre, con Enviar
+  desactivado. En TestFlight no aparece nunca.
+- **Android:** el diálogo solo aparece si la app se instaló desde Google Play
+  (internal app sharing o un track de prueba). La promesa resuelve igual.
+- **Fallback:** `openStoreReview` abre la ficha de la tienda; en Android sin
+  Play Store abre la ficha en play.google.com.
 
-## 7. Al terminar la prueba
+### 5. Al terminar
 
-Para volver a dejar Insumia limpio antes de decidir:
+Insumia ya depende de la versión publicada. Descarta los cambios de la rama de
+prueba (`package.json`, `yarn.lock` y `Podfile.lock`) y reinstala:
 
 ```bash
-cd ~/Documents/ReacProjectsNew/Insumia && yarn remove @acertijosapps/react-native-in-app-store-review
+cd ~/Documents/ReacProjectsNew/Insumia && git restore package.json yarn.lock ios/Podfile.lock && yarn install
 ```
-
-Y descarta los cambios de la rama de prueba (`git restore` / borra la rama), o
-consolida la migración si decides adoptar la librería de forma definitiva.

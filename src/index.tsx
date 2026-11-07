@@ -32,34 +32,38 @@ export function isReviewSupported(): boolean {
 /**
  * Opens the platform store page as a fallback when the native in-app prompt is
  * unavailable. On iOS it opens the App Store "write review" sheet; on Android it
- * opens the Play Store listing. Requires the matching id in `options`; otherwise
- * it resolves without doing anything.
+ * opens the Play Store listing, or the listing on play.google.com in the browser
+ * when the Play Store app is not installed. Requires the matching id in
+ * `options`; otherwise it resolves without doing anything.
  */
 export async function openStoreReview(
   options: RequestReviewOptions,
 ): Promise<void> {
-  const url = Platform.select({
-    ios: options.iosAppId
-      ? `https://apps.apple.com/app/id${options.iosAppId}?action=write-review`
-      : undefined,
-    android: options.androidPackage
-      ? `market://details?id=${options.androidPackage}`
-      : undefined,
-  });
+  const urls =
+    Platform.select<string[]>({
+      ios: options.iosAppId
+        ? [`https://apps.apple.com/app/id${options.iosAppId}?action=write-review`]
+        : [],
+      android: options.androidPackage
+        ? [
+            `market://details?id=${options.androidPackage}`,
+            `https://play.google.com/store/apps/details?id=${options.androidPackage}`,
+          ]
+        : [],
+    }) ?? [];
 
-  if (url == null) {
-    return;
-  }
-
-  try {
-    await Linking.openURL(url);
-  } catch {
-    // Store app not available — nothing else we can do.
+  for (const url of urls) {
+    try {
+      await Linking.openURL(url);
+      return;
+    } catch {
+      // No app can open this URL — try the next one.
+    }
   }
 }
 
 /**
- * Requests the native in-app review prompt (iOS `SKStoreReviewController` /
+ * Requests the native in-app review prompt (iOS StoreKit /
  * Android Play In-App Review). If the native module is not linked, it falls back
  * to opening the store listing using the ids provided in `options`.
  *

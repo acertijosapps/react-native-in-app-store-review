@@ -24,6 +24,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   [acertijosapps/react-native-in-app-store-review](https://github.com/acertijosapps/react-native-in-app-store-review).
   `repository` y `bugs` de `package.json`, la imagen del README, los enlaces
   de este CHANGELOG y el `source` del podspec apuntan ahí.
+- iOS: en iOS 16+ el prompt se pide con `AppStore.requestReview(in:)`;
+  `SKStoreReviewController`, deprecado desde iOS 18, queda solo para iOS 13–15.
+  Si no hay una escena activa, se usa cualquier `UIWindowScene` conectada en vez
+  de `SKStoreReviewController.requestReview()`, deprecado desde iOS 14.
+- iOS: el módulo ya no se inicializa en el hilo principal al arrancar
+  (`requiresMainQueueSetup` devuelve `false`); no exporta constantes.
+- Android: la dependencia pasa de `com.google.android.play:review-ktx` a
+  `com.google.android.play:review` (misma versión, 2.0.2); el módulo no usaba
+  las extensiones de Kotlin.
+- Android: el paquete Kotlin y el `namespace` pasan de
+  `com.bgoswaldo.inappstorereview` a `com.acertijosapps.inappstorereview`. Con
+  autolinking no hay que hacer nada; si registras el paquete a mano en
+  `MainApplication`, actualiza el import de `RNInAppStoreReviewPackage`.
+- `TESTING.md` remite a la app de ejemplo para pruebas rápidas y deja la
+  prueba con Insumia para antes de publicar.
 
 ### Fixed
 
@@ -31,6 +46,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `v2.0.0`; ahora usa `v#{s.version}`.
 - README y JSDoc de `requestReview`: en iOS el prompt **sí** aparece en builds
   de desarrollo (con Enviar desactivado); lo que nunca lo muestra es TestFlight.
+- Android: `openStoreReview` no abría nada en dispositivos sin Play Store
+  (falla `market://`); ahora abre la ficha en `https://play.google.com`.
 
 ## [2.0.0] - 2026-10-18
 
