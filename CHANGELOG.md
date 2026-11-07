@@ -5,6 +5,25 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- CI en GitHub Actions para cada PR y push a `beta` y `main`: typecheck y build
+  de la librería (`bob build`).
+
+### Changed
+
+- El repositorio se mudó de GitLab a GitHub:
+  [acertijosapps/react-native-in-app-store-review](https://github.com/acertijosapps/react-native-in-app-store-review).
+  `repository` y `bugs` de `package.json`, la imagen del README, los enlaces
+  de este CHANGELOG y el `source` del podspec apuntan ahí.
+
+### Fixed
+
+- Podspec: `s.source` usaba el tag sin prefijo (`2.0.0`), pero los tags son
+  `v2.0.0`; ahora usa `v#{s.version}`.
+
 ## [2.0.0] - 2026-10-18
 
 ### Changed
@@ -91,12 +110,12 @@ Primera versión pública.
 - Empaquetado con `react-native-builder-bob` (salidas CommonJS, ESM y tipos) y
   autolinking para iOS (podspec) y Android (Gradle).
 
-[2.0.0]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v2.0.0
-[1.1.1]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.1.1
-[1.1.0]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.1.0
-[1.0.5]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.5
-[1.0.4]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.4
-[1.0.3]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.3
-[1.0.2]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.2
-[1.0.1]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.1
-[1.0.0]: https://gitlab.com/acertijoslibs/rninappstorereview/-/tags/v1.0.0
+[2.0.0]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v2.0.0
+[1.1.1]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.1.1
+[1.1.0]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.1.0
+[1.0.5]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.0.5
+[1.0.4]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.0.4
+[1.0.3]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.0.3
+[1.0.2]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.0.2
+[1.0.1]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.0.1
+[1.0.0]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.0.0

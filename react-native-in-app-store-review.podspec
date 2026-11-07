@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
   s.platforms    = { :ios => "13.0" }
-  s.source       = { :git => "https://gitlab.com/acertijoslibs/rninappstorereview.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/acertijosapps/react-native-in-app-store-review.git", :tag => "v#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,swift}"
   s.frameworks   = "StoreKit"

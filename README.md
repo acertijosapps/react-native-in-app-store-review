@@ -9,7 +9,7 @@ in-app review flow:
 If the native module isn't available (e.g. Expo Go, or before you rebuild), it
 falls back to opening the store listing.
 
-![In-app review prompt on iOS and Android](https://gitlab.com/acertijoslibs/rninappstorereview/-/raw/main/assets/demo.png)
+![In-app review prompt on iOS and Android](https://raw.githubusercontent.com/acertijosapps/react-native-in-app-store-review/main/assets/demo.png)
 
 > Illustration of the native review prompt: iOS `SKStoreReviewController` (left)
 > and Android Play In-App Review (right).
