@@ -5,9 +5,4 @@
 RCT_EXTERN_METHOD(requestReview:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 
-+ (BOOL)requiresMainQueueSetup
-{
-  return YES;
-}
-
 @end

@@ -1,4 +1,4 @@
-package com.bgoswaldo.inappstorereview
+package com.acertijosapps.inappstorereview
 
 import android.app.Activity
 import com.facebook.react.bridge.Promise

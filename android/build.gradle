@@ -6,7 +6,7 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-  namespace "com.bgoswaldo.inappstorereview"
+  namespace "com.acertijosapps.inappstorereview"
 
   compileSdkVersion safeExtGet("compileSdkVersion", 35)
 
@@ -32,5 +32,5 @@ repositories {
 
 dependencies {
   implementation "com.facebook.react:react-android"
-  implementation "com.google.android.play:review-ktx:2.0.2"
+  implementation "com.google.android.play:review:2.0.2"
 }

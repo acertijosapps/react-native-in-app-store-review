@@ -1,4 +1,4 @@
-package com.bgoswaldo.inappstorereview
+package com.acertijosapps.inappstorereview
 
 import com.facebook.react.BaseReactPackage
 import com.facebook.react.bridge.NativeModule
