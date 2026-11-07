@@ -64,8 +64,8 @@ export async function openStoreReview(
  * to opening the store listing using the ids provided in `options`.
  *
  * Note: both platforms decide whether the prompt actually appears and rate-limit
- * it. On iOS the prompt never shows in debug builds or via TestFlight — only in
- * App Store production builds.
+ * it. On iOS the prompt always shows in development builds (with Submit
+ * disabled), never via TestFlight, and is rate-limited in App Store builds.
  */
 export async function requestReview(
   options: RequestReviewOptions = {},

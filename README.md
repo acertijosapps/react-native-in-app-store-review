@@ -72,9 +72,10 @@ interface RequestReviewOptions {
 The OS controls whether the prompt actually appears — you can call it, but there
 is no guarantee it shows:
 
-- **iOS**: the prompt **never** appears in debug builds or via TestFlight. Test
-  it in a production/App Store build. Apple also rate-limits it (a few times per
-  365 days per device).
+- **iOS**: in development builds (run from Xcode, including the Simulator) the
+  prompt **always** appears so you can test the UI, with the Submit button
+  disabled. Via TestFlight it **never** appears. In App Store builds Apple
+  rate-limits it (a few times per 365 days per device).
 - **Android**: Play rate-limits and may show nothing (quota). Test with an
   internal testing track / a license-tester account. The call resolves either
   way — treat a resolved promise as "attempted", not "shown".
