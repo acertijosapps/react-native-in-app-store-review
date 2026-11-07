@@ -4,7 +4,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "lib": ["esnext"],
+    "lib": [
+      "esnext"
+    ],
     "declaration": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -13,5 +15,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true
-  }
+  },
+  "exclude": [
+    "example",
+    "lib"
+  ]
 }

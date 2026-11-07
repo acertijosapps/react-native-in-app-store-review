@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - CI en GitHub Actions para cada PR y push a `beta` y `main`: typecheck y build
   de la librería (`bob build`).
+- App de ejemplo en `example/` (React Native 0.86.3) con botones para
+  `requestReview()`, `openStoreReview()` e `isReviewSupported()`. No se publica
+  en npm.
+- CI: job **Compilar Android** (typecheck del example y `compileDebugKotlin` del
+  módulo) en cada PR, y job **Compilar iOS** (`pod install` y `xcodebuild` para
+  simulador) solo en los PRs hacia `main`.
 
 ### Changed
 
@@ -23,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Podspec: `s.source` usaba el tag sin prefijo (`2.0.0`), pero los tags son
   `v2.0.0`; ahora usa `v#{s.version}`.
+- README y JSDoc de `requestReview`: en iOS el prompt **sí** aparece en builds
+  de desarrollo (con Enviar desactivado); lo que nunca lo muestra es TestFlight.
 
 ## [2.0.0] - 2026-10-18
 

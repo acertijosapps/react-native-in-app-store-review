@@ -27,3 +27,64 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run prepare
+
+  android:
+    name: Compilar Android
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            example/package-lock.json
+      - uses: actions/setup-java@v5
+        with:
+          distribution: zulu
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - run: npm ci
+      - run: npm ci
+        working-directory: example
+      - run: npm run typecheck
+        working-directory: example
+      - run: ./gradlew :acertijosapps_react-native-in-app-store-review:compileDebugKotlin --console=plain
+        working-directory: example/android
+
+  # Tarda ~10-15 min en macOS: solo corre en los PRs de release (beta → main).
+  # En los PRs a beta queda "skipped", que cuenta como aprobado en el ruleset.
+  ios:
+    name: Compilar iOS
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: macos-latest
+    env:
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: example/package-lock.json
+      - run: npm ci
+        working-directory: example
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: example
+      - run: bundle exec pod install
+        working-directory: example/ios
+      - run: >
+          xcodebuild
+          -workspace InAppStoreReviewExample.xcworkspace
+          -scheme InAppStoreReviewExample
+          -configuration Debug
+          -sdk iphonesimulator
+          -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO
+          build
+        working-directory: example/ios
