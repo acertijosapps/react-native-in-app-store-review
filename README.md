@@ -3,8 +3,9 @@
 Ask users to rate your app **without leaving it**, using each platform's native
 in-app review flow:
 
-- **iOS** → [`SKStoreReviewController`](https://developer.apple.com/documentation/storekit/skstorereviewcontroller)
-- **Android** → [Play In-App Review](https://developer.android.com/guide/playcore/in-app-review) (`com.google.android.play:review-ktx`)
+- **iOS** → [`AppStore.requestReview(in:)`](https://developer.apple.com/documentation/storekit/appstore/requestreview(in:)-1q8qs)
+  on iOS 16+, [`SKStoreReviewController`](https://developer.apple.com/documentation/storekit/skstorereviewcontroller) on iOS 13–15
+- **Android** → [Play In-App Review](https://developer.android.com/guide/playcore/in-app-review) (`com.google.android.play:review`)
 
 If the native module isn't available (e.g. Expo Go, or before you rebuild), it
 falls back to opening the store listing.
@@ -64,7 +65,8 @@ interface RequestReviewOptions {
 - **`requestReview(options?)`** — Shows the native in-app prompt. If the native
   module is not linked, falls back to `openStoreReview(options)`.
 - **`openStoreReview(options)`** — Explicitly opens the store listing
-  (App Store "write review" sheet on iOS, Play Store listing on Android).
+  (App Store "write review" sheet on iOS, Play Store listing on Android; on
+  devices without the Play Store it opens the listing on play.google.com).
 - **`isReviewSupported()`** — `true` when the native module is linked.
 
 ## Important notes
