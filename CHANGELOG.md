@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.1.0] - 2026-11-07
 
 ### Added
 
@@ -135,6 +135,7 @@ Primera versión pública.
 - Empaquetado con `react-native-builder-bob` (salidas CommonJS, ESM y tipos) y
   autolinking para iOS (podspec) y Android (Gradle).
 
+[2.1.0]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v2.1.0
 [2.0.0]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v2.0.0
 [1.1.1]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.1.1
 [1.1.0]: https://github.com/acertijosapps/react-native-in-app-store-review/releases/tag/v1.1.0

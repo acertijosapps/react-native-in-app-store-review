@@ -1426,7 +1426,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - react-native-in-app-store-review (2.0.0):
+  - react-native-in-app-store-review (2.1.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2193,7 +2193,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 753b6243c262b450bfb600d5ff9cd217e202aba4
   React-microtasksnativemodule: a17ad91dc2ffce239f04c3cde399e572bb9ae2ce
   React-mutationobservernativemodule: 8c55b94d65d5a91e864625f33e3cc46844e92868
-  react-native-in-app-store-review: 7a15d5e08d5dd3c0e936988cd4f6e3bd9e94f926
+  react-native-in-app-store-review: 592286b7384cffe6ef21c7179cdf6cd1af73fb69
   react-native-safe-area-context: 7cfe4bdd6a0101a06ac86e539ebd8aab45b6e113
   React-NativeModulesApple: cfc692440e333764c7533669ef93a649e20b9754
   React-networking: 0114b601d84e7c353fd75afcb01f1f052d082939
